@@ -1,0 +1,93 @@
+﻿@using Models;
+@using Models.Famework;
+@model Models.Famework.Product
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    List<Product> products = (List<Product>)ViewBag.List;
+
+}
+<section id="productdetail" class="section-p1">
+    <div class="single-pro-image">
+        <img src=@Url.Content(Model.Photo.Photo1) width="100%" id="MainImg" alt="">
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img src=@Url.Content(Model.Photo.Photo1) width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src=@Url.Content(Model.Photo.Photo2) width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src=@Url.Content(Model.Photo.Photo3) width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src=@Url.Content(Model.Photo.Photo3) width="100%" class="small-img" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="single-pro-detail">
+        <h6>Home/Sneaker</h6>
+        <h4>@Model.ProductName</h4>
+        <h2>@Model.ProductPrice</h2>
+        @using (Html.BeginForm("AddCart", "Cart", new { @productId = Model.ProductId }, FormMethod.Post))
+        {
+            <select name="size" id="size" required>
+                <option value="0">Select Size</option>
+                @for (int i = (int)Model.Size.size1; i <= Model.Size.size2; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <input type="number" value="1" min="1" id="quantity" name="quantity">
+            <button onclick="cart();" type="submit" class="normal">Add To Cart</button>
+        }
+        <h4>
+            Product Detail /
+            @{
+                if (Model.Quantity > 0)
+                {
+                    <span>stocking</span>
+                }
+                else
+                {
+                    <span>Out of stock</span>
+                }
+            }
+        </h4>
+        <span>@Model.Note</span>
+    </div>
+</section>
+<section id="product1" class="section-p1">
+    <h2>Featured Products</h2>
+    <p>Summer Collection New Morden Desgin</p>
+    <div class="pro-container">
+        @foreach (var item in products)
+        {
+            <div class="pro">
+                <a href="@Url.Action("ProductDetail","Product",new { @id=item.ProductId})">
+                    <img src="~/Asset/Page/img/products/f1.jpg" alt="">
+                </a>
+                <div class="des">
+                    <span>@item.Brand.BrandName</span>
+                    <h5>@item.ProductName</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$@item.ProductPrice</h4>
+                </div>
+                @*<a href="@Url.Action("AddCart", "Cart", new {@productId=item.ProductId,@quantity=1})"><i class="fa-solid fa-cart-plus cart"></i></a>*@
+            </div>
+        }
+    </div>
+</section>
+@section Script{
+    <script type="text/javascript">
+        function cart() {
+            swal("Good job!", "You clicked the button!", "success");
+        }
+    </script>
+    } 

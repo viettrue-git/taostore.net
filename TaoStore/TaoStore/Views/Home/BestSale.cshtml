@@ -1,0 +1,39 @@
+﻿@using Models.Famework
+
+@model List<Product>
+<section id="product1" class="section-p1">
+    <h2>New Arrivals</h2>
+    <p>Summer Collection New Morden Desgin</p>
+    <div class="pro-container">
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                if (i < 8)
+                {
+                    <div class="pro">
+                        <img src="~/Asset/Page/img/products/f1.jpg" alt="">
+                        <div class="des">
+                            <span>@item.Brand.BrandName</span>
+                            <h5>@item.ProductName</h5>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>$@item.ProductPrice</h4>
+                        </div>
+                        <a href="@Url.Action("AddCart", "Cart", new {@productId=item.ProductId,@quantity=1})"><i class="fa-solid fa-cart-plus cart"></i></a>
+                    </div>
+                    i++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    </div>
+</section>

@@ -1,0 +1,34 @@
+﻿
+<section id="header">
+    <a href="#"><img src="~/Asset/Page/img/logo.png" class="logo" alt=""></a>
+    <div>
+        <ul id="navbar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <a class="dropbtn" href="@Url.Action("Index","Product")">
+                        Shop
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <span>----</span>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping "></i></a></li>
+            <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </ul>
+    </div>
+    <div id="mobile">
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>

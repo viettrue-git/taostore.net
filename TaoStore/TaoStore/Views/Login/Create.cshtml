@@ -1,0 +1,121 @@
+﻿@model Models.Famework.Acount
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Login/_LayoutLogin.cshtml";
+}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="login-wrap p-0">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @*@Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })*@
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @type = "text", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.PassWord, new { @id = "password-field", @class = "form-control", @placeholder = "Password", @type = "password" })
+                    @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.F_Password, new { @id = "password-field", @class = "form-control", @placeholder = "Password", @type = "password" })
+                    @Html.ValidationMessageFor(model => model.F_Password, "", new { @class = "text-danger" })
+                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div> 
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.AcountName, new { @class = "form-control", @placeholder = "Name" })
+                    @Html.ValidationMessageFor(model => model.AcountName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @placeholder = "Phone number",@type="number"})
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-primary submit px-3">Sign up</button>
+                </div>              
+            }
+            @*<form action="#" class="signin-form">
+        </form>*@
+            <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+            <div class="social d-flex text-center">
+                <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+                <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<h2>Create</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row justify-content-center">
+            <h4>Acount</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.AcountName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AcountName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AcountName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AcountRole, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AcountRole, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AcountRole, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Avatar, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

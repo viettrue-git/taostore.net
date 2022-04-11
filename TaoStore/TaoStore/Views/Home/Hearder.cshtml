@@ -1,0 +1,39 @@
+﻿@{
+    var listCat = (List<Models.Famework.Category>)ViewBag.listCat;
+    var listBrand = (List<Models.Famework.Brand>)ViewBag.listBrand;
+}
+<section id="header">
+    <a href="#"><img src="~/Asset/Page/img/logo.png" class="logo" alt=""></a>
+    <div>
+        <ul id="navbar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li>
+                <div class="dropdown">
+                    <a class="dropbtn" href="@Url.Action("Index","Product")">
+                        Shop
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        @foreach (var brand in listBrand)
+                        {
+                            <a href="#">@brand.BrandName</a>
+                        }
+                        <span>----</span>
+                        @foreach (var category in listCat)
+                        {
+                            <a href="#">@category.CategoryName</a>
+                        }
+                    </div>
+                </div>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping "></i></a></li>
+            <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </ul>
+    </div>
+    <div id="mobile">
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>

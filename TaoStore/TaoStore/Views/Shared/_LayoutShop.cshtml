@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    @Styles.Render("~/bundles/page/css")
+    <!-- <link rel="stylesheet" href="css/all.min.css"> -->
+    <script src="https://kit.fontawesome.com/d5558d6c2f.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+
+
+
+    @{ Html.RenderAction("ParialMenu", "Home");}
+
+    <section id="page-header">
+        <h2>#stayhone</h2>
+        <p>Save more with coupons & up 70% off!</p>
+    </section>
+
+    <section id="pagination" class="section-p1">
+        <div class="search">
+            @using (Html.BeginForm("ResultSearch", "Search", FormMethod.Post))
+            {
+                @Html.TextBox("txtTimKiem", "", htmlAttributes:
+                new { @class = "key", @placeholder = "enter your key search" })
+                @*<input type="text" id="txtTimKiem" class="key" placeholder="enter your key search">*@
+                <button class="normal" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            }
+        </div>
+    </section>
+
+
+    @RenderBody()
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign uo For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email adress">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    @Html.Partial("Footer")
+    <script>
+        var MainImg = document.getElementById("MainImg");
+        var smallimg = document.getElementsByClassName("small-img");
+        smallimg[0].onclick = function () {
+            MainImg.src = smallimg[0].src;
+        }
+        smallimg[1].onclick = function () {
+            MainImg.src = smallimg[1].src;
+        }
+        smallimg[2].onclick = function () {
+            MainImg.src = smallimg[2].src;
+        }
+        smallimg[3].onclick = function () {
+            MainImg.src = smallimg[3].src;
+        }
+    </script>
+    @Scripts.Render("~/bundles/page/js")
+    @RenderSection("Script", false)
+
+</body>
+</html>

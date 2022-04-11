@@ -1,0 +1,32 @@
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\Models.dll.config
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\Models.dll
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\Models.pdb
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\EntityFramework.dll
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\EntityFramework.xml
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\UTC_cntt4\Đồ án\TaoStore\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\UTC_cntt4\Đồ án\TaoStore\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\UTC_cntt4\Đồ án\TaoStore\Models\obj\Debug\Models.csproj.CopyComplete
+D:\UTC_cntt4\Đồ án\TaoStore\Models\obj\Debug\Models.dll
+D:\UTC_cntt4\Đồ án\TaoStore\Models\obj\Debug\Models.pdb
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\PagedList.dll
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\PagedList.Mvc.dll
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\PagedList.xml
+D:\UTC_cntt4\Đồ án\TaoStore\Models\bin\Debug\PagedList.Mvc.xml
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\Models.dll.config
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\Models.dll
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\Models.pdb
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\EntityFramework.dll
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\PagedList.dll
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\PagedList.Mvc.dll
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\EntityFramework.xml
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\PagedList.xml
+C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\PagedList.Mvc.xml
+C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.dll
+C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.pdb

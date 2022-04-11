@@ -1,0 +1,108 @@
+﻿@using TaoStore.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Models.Famework.Brand>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+                    <h4>
+                        @{
+                            if (ViewBag.Brand == true)
+                            {
+                                <label style="color:aliceblue">@ViewBag.Mes</label>
+                            }
+                        }
+                    </h4>
+                    <div class="add-product">
+                        <a href="@Url.Action("Add","Brand")">Add Brand</a>
+                    </div>
+                    <table id="table">
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Count Product</th>
+                            <th>Note</th>
+                            <th>Setting</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.BrandId">
+                                <td>
+                                    @{
+                                        if (item.BrandLogo == null || item.BrandLogo == "")
+                                        {
+                                            <img src="~/Asset/Image/Category/not-available.jpg" alt="" />
+                                        }
+                                        else
+                                        {
+                                            @*<img src=@Url.Content(item.BrandLogo) alt="" />*@
+                                        }
+                                    }
+                                </td>
+                                <td>@item.BrandName</td> 
+                                <td>
+                                        <button id="btn-status"  class="btn-status" data-id="@item.BrandId">@(item.Status==true? "Active": "Disable")</button>
+                                    
+                                </td>
+                                <td>@item.Products.Count()</td>
+                                <td>@(item.Note!=""?item.Note:"Chưa cập nhật")</td>
+                                <td>
+                                    <a href="@Url.Action("Edit","Brand",new { @id=item.BrandId})">
+                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    </a>
+                                    <a onclick="Delete('@Url.Action("Delete","Brand",new { id=item.BrandId})')">
+                                        <button id="btndelete" data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <div class="custom-pagination">
+                        <div class="pagination">
+                            @Html.PagedListPager(Model, page =>
+                            Url.Action("Index", new { page = page }),
+                            new PagedListRenderOptions
+                                {
+                                LiElementClasses = new string[] { "page-item" },
+                        })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FooterAdmin{
+
+    <script type="text/javascript">
+        function Delete(url) {
+            console.log("xóa");
+            console.log(url);
+            var res = confirm('Bạn có muốn xóa mục này không???');
+            console.log(res);
+            if (res == true) {
+                $.ajax({
+                    url: url,
+                    type: 'Delete',
+                    success: function (response) {
+                        alert("Delete succsefully!!");
+                        console.log(response.brandID);
+                        $('#row_' + response.brandID).remove();
+                    },
+                    error: function (e) {
+                        alert("Delete fail " + e);
+                    }
+                })
+          }
+        }
+    </script>
+    <script src="~/Asset/Admin/js/controller/brand/brand.js"></script>
+}

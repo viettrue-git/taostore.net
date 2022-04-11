@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    int total = 0;
+    if (ViewBag.Total != null)
+    {
+        total = (int)ViewBag.Total;
+    }
+
+}
+@if (Session["loginSession"] != null)
+{
+    Models.Famework.Acount acount = (Models.Famework.Acount)Session["loginSession"];
+
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal2">
+            <h3>Check out</h3>
+            @using (Html.BeginForm("Index", "Pay", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" value="@acount.AcountName" name="name" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input type="email" value="@acount.Email" name="email" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>
+                            <input type="number" value="@acount.Phone" name="phone" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Adress</td>
+                        <td>
+                            <input type="text" name="adress" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Note</td>
+                        <td>
+                            <input type="text" name="note" id="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>@total</strong></td>
+                    </tr>
+                </table>
+                <button type="submit" class="normal">Check out cart</button>
+            }
+        </div>
+    </section>
+}
+else
+{
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal2">
+            <h3> Check out</h3>
+            @using (Html.BeginForm("Index", "Pay", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" name="name" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input type="email" name="email" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>
+                            <input type="number" name="phone" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Adress</td>
+                        <td>
+                            <input type="text" name="adress" id="" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Note</td>
+                        <td>
+                            <input type="text" name="note" id="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>@total</strong></td>
+                    </tr>
+                </table>
+                <button type="submit" class="normal">Check out cart</button>
+            }
+        </div>
+    </section>
+}
+@if (ViewBag.Flag == false)
+{
+    string mes = (string)ViewBag.MesPay;
+    @section Script{
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Messager!",@mes, "erro");
+            }
+        </script>
+    }
+}
+
+
+
+

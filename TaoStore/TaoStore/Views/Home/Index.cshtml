@@ -1,0 +1,54 @@
+﻿@using Models.Famework;
+@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="product1" class="section-p1">
+    <h2>Featured Products</h2>
+    <p>Summer Collection New Morden Desgin</p>
+    <div class="pro-container">
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                if (i < 8)
+                {
+                <div class="pro">
+                    <a href="@Url.Action("ProductDetail","Product",new { @id=item.ProductId})">
+                        @{
+                            if (item.Photo.Photo1 != null)
+                            {
+                                <img src=@Url.Content(item.Photo.Photo1) alt="">
+                            }
+                            else
+                            {
+                                <img src="~/Asset/Image/Category/not-available.jpg" alt="" />
+                            }
+                        }
+                    </a>
+                    <div class="des">
+                        <span>@item.Brand.BrandName</span>
+                        <h5>@item.ProductName</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$@item.ProductPrice</h4>
+                    </div>
+                    @*<a href="@Url.Action("AddCart", "Cart", new {@productId=item.ProductId,@quantity=1})"><i class="fa-solid fa-cart-plus cart"></i></a>*@
+                </div>
+                    i++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    </div>
+</section>
