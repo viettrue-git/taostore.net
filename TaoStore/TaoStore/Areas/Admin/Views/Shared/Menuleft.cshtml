@@ -1,0 +1,68 @@
+﻿<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+        <div class="sidebar-header">
+            @*<a href="index.html"><img class="main-logo" src="~/Asset/Admin/img/logo/logo1.png" alt="" /></a>
+                <strong><img src="~/Asset/Admin/img/logo/logosn.png" alt="" /></strong>*@
+        </div>
+        <div class="nalika-profile">
+            <div class="profile-dtl">
+                <a href="@Url.Action("Index","HomeAdmin")"><img src="~/Asset/Admin/img/notification/4.jpg" alt="" /></a>
+                <h2>Tao <span class="min-dtn">Store</span></h2>
+            </div>
+            <div class="profile-social-dtl">
+                <ul class="dtl-social">
+                    <li><a href="#"><i class="icon nalika-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon nalika-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    <li class="active">
+                        <a class="has-arrow" href="index.html">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Product</span>
+                        </a>
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Dashboard v.1" href="@Url.Action("Index","Product")"><span class="mini-sub-pro">All Product</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-zip icon-wrap"></i> <span class="mini-click-non">Catalog</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a title="Category" href="@Url.Action("Index","Category")"><span class="mini-sub-pro">Category</span></a></li>
+                            <li><a title="Brand" href="@Url.Action("Index","Brand")"><span class="mini-sub-pro">Brand</span></a></li>
+                            <li><a title="Size" href="@Url.Action("Index","Size")"><span class="mini-sub-pro">Size</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow" href="@Url.Action("Index","Order")" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Order</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a title="Total order" href="@Url.Action("OrderWait","Order")"><span class="mini-sub-pro">Order wait</span></a></li>
+                            <li><a title="waiting for the goods" href="@Url.Action("OrderLoad","Order")"><span class="mini-sub-pro">Order Loadding</span></a></li>
+                            <li><a title="successfully" href="@Url.Action("OrderSuccess","Order")"><span class="mini-sub-pro">Order success</span></a></li>
+                            <li><a title="Fail order" href="@Url.Action("Index","Order")"><span class="mini-sub-pro">All orders</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            <li><a title="Bar Charts" href="@Url.Action("Index","HomeAdmin")"><span class="mini-sub-pro">Chart all</span></a></li>
+                            <li><a title="Line Charts" href="@Url.Action("ChartYear","HomeAdmin")"><span class="mini-sub-pro">Chart product</span></a></li>
+                            <li><a title="Area Charts" href="@Url.Action("Index","Customer")"><span class="mini-sub-pro">Customers</span></a></li>
+                        </ul>
+                    </li>
+
+
+
+
+                </ul>
+            </nav>
+        </div>
+    </nav>
+</div>

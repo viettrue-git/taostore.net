@@ -3,10 +3,9 @@
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_LayoutShop.cshtml";
     int total = 0;
-    if (ViewBag.Total != null)
-    {
-        total = (int)ViewBag.Total;
-    }
+    List<TaoStore.Models.CartItem> list = (List< TaoStore.Models.CartItem >) Session["giohang"];
+    total = list.Sum(x => x.Total);
+
 
 }
 @if (Session["loginSession"] != null)

@@ -15,9 +15,15 @@ namespace Models.Dao
         {
             context = new OnlineShopDBContext();
         }
+        public IEnumerable<Product> GetAll()
+        {
+            string search = "";
+            var list = context.Products.Where(x => x.ProductName.Contains(search) || string.IsNullOrEmpty(search)).OrderBy(x=>x.DateAdded).ToList();
+            return list;
+        }
         public List<Product> ListProductNew()
         {
-            List<Product> list = context.Products.OrderByDescending(x => x.DateAdded).ToList();
+            List<Product> list = context.Products.OrderBy(x => x.DateAdded).ToList();
             return list;
         }
         public List<Product> ListProductBestSell()
@@ -54,6 +60,11 @@ namespace Models.Dao
         public IEnumerable<Product> ProductByBrand(int id)
         {
             var list = context.Products.Where(x => x.BrandId == id).ToList();
+            return list;
+        }
+        public IEnumerable<Product> ProductByDiscount(int discount)
+        {
+            var list = context.Products.Where(x => x.Discount >= discount).OrderByDescending(x=>x.Discount).ToList();
             return list;
         }
 

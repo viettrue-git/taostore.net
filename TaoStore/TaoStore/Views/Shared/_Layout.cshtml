@@ -9,8 +9,6 @@
     <!-- <link rel="stylesheet" href="css/all.min.css"> -->
     <script src="https://kit.fontawesome.com/d5558d6c2f.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-
 </head>
 <body>
     @{ Html.RenderAction("ParialMenu", "Home");}
@@ -19,7 +17,9 @@
         <h2>Super value deals</h2>
         <h1>On all products</h1>
         <p>Save more with coupons & up 70% off!</p>
-        <button>Shop Now</button>
+        <a href="@Url.Action("ProductByDiscount","Product",new {@discount=70})">
+            <button>Shop Now</button>
+        </a>
     </section>
 
 
@@ -52,11 +52,13 @@
     @RenderBody()
 
 
-    <section id="banner" class="section-m1">
-        <h4>Repair Services</h4>
-        <h2>Up to <span>70% Off</span> - All Product & Accessories</h2>
+<section id="banner" class="section-m1">
+    <h4>Repair Services</h4>
+    <h2>Up to <span>70% Off</span> - All Product & Accessories</h2>
+    <a href="@Url.Action("ProductByDiscount","Product",new {@discount=10})">
         <button class="normal">Explore More</button>
-    </section>
+    </a>
+</section>
 
     @{ Html.RenderAction("BestSale", "Home");}
 

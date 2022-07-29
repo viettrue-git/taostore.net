@@ -3,10 +3,11 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutShop.cshtml";
+    List<CartItem> list = (List<CartItem>)Session["giohang"];
 }
-@if (Model != null)
+@if (list!=null&&list.Count>0)
 {
-      int total = (int)ViewBag.Total;
+    int total = (int)ViewBag.Total;
     <section id="cart" class="section-p1">
         <table width="100%">
             <thead>
@@ -36,7 +37,7 @@
                         <td>@item.product.ProductPrice.GetValueOrDefault(0)</td>
                         <td>
                             <form id="formEdit_@i" action="@Url.Action("EditCart","Cart",new {productId=item.product.ProductId,quantity="$('#sml').val()",size=item.Size})" method="post">
-                                <input id="slm" name="quantity" min="1" step="1" type="number" value="@item.Quantity" onchange="$('#formEdit_@i').submit();" />
+                                <input id="slm" name="quantity" min="1" step="1" max="@item.Quantity" type="number" value="@item.Quantity" onchange="$('#formEdit_@i').submit();" />
                             </form>
                         </td>
                         <td>@item.Total</td>
@@ -71,12 +72,18 @@
                     <td><strong>@total</strong></td>
                 </tr>
             </table>
-            <a href="@Url.Action("Index","Pay")">
+            <a href="@Url.Action("Index","Pay")">                                   
                 <button class="normal">Check out cart</button>
             </a>
+            <div>
+                <a href="@Url.Action("Index","Payment")">
+                    <img width="10%" height="10%" src="~/Asset/Image/20201011055543MoMo_Logo.png">
+                </a>
+            </div>
         </div>
     </section>
     // pay by momo
+
 
     @section Script{
         <script type="text/javascript">
@@ -88,11 +95,13 @@
                     type: 'POST',
                     success: function (res) {
                         if (res.status == true) {
-                            window.location.href = "Cart/Index";
+                            location.reload();
+                            // window.location.href = "Cart/Index";
+                            console.log("ok");
                         }
                     }
                 })
-            });
+            });  
         </script>
     }
 

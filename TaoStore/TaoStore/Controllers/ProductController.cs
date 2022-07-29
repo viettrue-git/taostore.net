@@ -56,12 +56,14 @@ namespace TaoStore.Controllers
             int resSkip = (pg - 1) * pageSize;
             var model = products.Skip(resSkip).Take(pager.PageSize).ToList();
             this.ViewBag.Pager = pager;
+            this.ViewBag.idCat = id;
             return View(model);
         }
         public ActionResult ProductByBrand(int id, int pg = 1)
         {
             const int pageSize = 8;
             var products = new ProductDao().ProductByBrand(id);
+            this.ViewBag.idBrand = id;
             int resCount = products.Count();
             if (resCount == 0)
             {
@@ -71,10 +73,30 @@ namespace TaoStore.Controllers
             {
                 pg = 1;
             }
-            var pager = new Pager(resCount, pg, pageSize);
-            int resSkip = (pg - 1) * pageSize;
-            var model = products.Skip(resSkip).Take(pager.PageSize).ToList();
+            var pager = new Pager(resCount, pg, pageSize); // trang hien tai
+            int resSkip = (pg - 1) * pageSize; // so san pham truoc do
+            var model = products.Skip(resSkip).Take(pager.PageSize).ToList(); // so san pham trang hien tai
             this.ViewBag.Pager = pager;
+            return View(model);
+        }
+        public ActionResult ProductByDiscount(int discount, int pg=1)
+        {
+            const int pageSize = 8;
+            var products = new ProductDao().ProductByDiscount(discount);
+            int resCount = products.Count();
+            if (resCount == 0)
+            {
+                ViewBag.Mes = "We are so sorry! There are currently no matching products.Here are some other options!";
+            }
+            if (pg < 1)
+            {
+                pg = 1;
+            }
+            var pager = new Pager(resCount, pg, pageSize); // trang hien tai
+            int resSkip = (pg - 1) * pageSize; // so san pham truoc do
+            var model = products.Skip(resSkip).Take(pager.PageSize).ToList(); // so san pham trang hien tai
+            this.ViewBag.Pager = pager;
+            this.ViewBag.Discount = discount;
             return View(model);
         }
     }

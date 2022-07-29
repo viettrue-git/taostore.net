@@ -63,9 +63,11 @@
     <Compile Include="AcountModel.cs" />
     <Compile Include="BrandModel.cs" />
     <Compile Include="CategoryModel.cs" />
+    <Compile Include="CustomerModel.cs" />
     <Compile Include="Dao\BrandDao.cs" />
     <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\ProductDao.cs" />
+    <Compile Include="Dao\SliderDao.cs" />
     <Compile Include="Famework\Acount.cs" />
     <Compile Include="Famework\Brand.cs" />
     <Compile Include="Famework\Cart.cs" />
@@ -81,7 +83,9 @@
     <Compile Include="Famework\ProductSeller.cs" />
     <Compile Include="Famework\Size.cs" />
     <Compile Include="Famework\sysdiagram.cs" />
+    <Compile Include="OrderModel.cs" />
     <Compile Include="Pager.cs" />
+    <Compile Include="ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

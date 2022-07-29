@@ -1,7 +1,8 @@
-namespace Models.Famework
+﻿namespace Models.Famework
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -60,5 +61,8 @@ namespace Models.Famework
         public virtual Size Size { get; set; }
 
         public virtual ProductSeller ProductSeller { get; set; }
+
+        [DisplayName("Tình trạng")]
+        public bool? Status { get; set; }
     }
 }

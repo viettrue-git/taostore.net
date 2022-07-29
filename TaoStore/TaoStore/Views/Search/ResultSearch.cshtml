@@ -13,9 +13,14 @@
         pageNo = pager.CurrentPage;
     }
 }
-<section class="mes">
-    <label>@mes</label>
-</section>
+@{
+    if (ViewBag.Mes != null)
+    {
+        <section class="mes">
+            <div>@ViewBag.Mes</div>
+        </section>
+    }
+}
 <section id="product1" class="section-p1">
     <div class="pro-container">
         @{
@@ -23,7 +28,7 @@
             {
                 <div class="pro">
                     <a href="@Url.Action("ProductDetail","Product",new { @id=item.ProductId})">
-                        <img src="~/Asset/Page/img/products/f1.jpg" alt="">
+                        <img src="@Url.Content(item.Photo.Photo1)" alt="">
                     </a>
                     <div class="des">
                         <span>@item.Brand.BrandName</span>
@@ -62,9 +67,10 @@
     }
 </section>
 <style>
-    .mes{
-       width:100%;
+    .mes {
+        width: 100%;
     }
+
         .mes label {
             text-align: center;
             color: chartreuse;

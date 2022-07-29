@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "PaySuccess";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+
+<section id="product1" class="section-p1">
+    <h2>Thank you for your payment</h2>
+    <p>We will contact you soon</p>
+    <a href="@Url.Action("Index","Product")">
+        <button class="normal">Buy more</button>
+    </a>
+</section>
+
+<section id="cart" class="section-p1">
+    <table width="100%">
+        <tbody>
+            <tr>
+                <td><i class="far fa-times-circle"></i></td>
+                <td>chờ xác nhận</td>
+                <td>đang giao</td>
+                <td>đặt hàng lại</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+

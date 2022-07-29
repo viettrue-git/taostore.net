@@ -25,8 +25,8 @@ C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\EntityFramework.xml
 C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\PagedList.xml
 C:\Users\ADMIN88\source\repos\TaoStore\Models\bin\Debug\PagedList.Mvc.xml
-C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.csprojAssemblyReference.cache
 C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.dll
 C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.pdb
+C:\Users\ADMIN88\source\repos\TaoStore\Models\obj\Debug\Models.csproj.AssemblyReference.cache

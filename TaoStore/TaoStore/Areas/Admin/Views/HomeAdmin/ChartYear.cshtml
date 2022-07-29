@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@{
+    int years = DateTime.Now.Year;
+}
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <select id="year" class="form-control" style="width:150px">
+                    <option value="0">select year</option>
+                    @for (int i = 2017; i <= years; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+            <div id="dvChart">
+                <canvas style="height:300px;width:50%" id="chartProduct"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section FooterAdmin{
+    <script src="~/Asset/Admin/js/Chart.min.js"></script>
+    <script>
+                var dt = new Date();
+                GetListData(dt.getFullYear());
+
+
+                $('#year').on('change', function () {
+                    var year = $(this).val();
+                    GetListData(year);
+                });
+                function GetListData(year) {
+                    $.get('/HomeAdmin/ListData?year=' + year, function (res) {
+                        console.log(res);
+                        LoadChart(res);
+                    });
+                }
+                function LoadChart(listData) {
+                    // xoa canvas cũ
+                    // add lại canvas mới
+                    $("canvas#chartProduct").remove();
+                    $('#dvChart').html('<canvas style="height:300px" id="chartProduct"></canvas>');
+
+                    var lslabel = [];
+                    var lsMoney = [];
+                    var lsCountPro = [];
+                    $.each(listData, function (index, item) {
+                        lslabel.push(item.month);
+                        lsMoney.push(item.total);
+                        lsCountPro.push(item.countproduct);
+                    })
+                    console.log(lslabel);
+                    console.log(lsMoney);
+                    console.log(lsCountPro)
+                    var ctx = document.getElementById('chartProduct');//.getContext('2d');
+
+                    var dataChart =
+                    {
+                        labels: lslabel,
+                        datasets: [
+                            {
+                                label: '#money',
+                                data: lsMoney,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)'
+                                ],
+                                borderWidth: 1
+                            },
+                            {
+                                label: '#product',
+                                data: lsCountPro,
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)'
+                                ],
+                                borderWidth: 1
+                            }
+                        ]
+                    };
+
+                    var myBarChar = new Chart(ctx, {
+                        type: 'line',
+                        data: dataChart
+                        //options: options
+                    });
+                }
+
+
+    </script>
+}

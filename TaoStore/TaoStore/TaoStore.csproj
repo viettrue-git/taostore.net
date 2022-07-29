@@ -52,7 +52,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.10-beta\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -144,7 +153,12 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhotoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Service\SliderService.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -177,12 +191,15 @@
     <Compile Include="Code\CustomMembershipProvider.cs" />
     <Compile Include="Code\Encode.cs" />
     <Compile Include="Code\MailHelper.cs" />
+    <Compile Include="Code\MoMoSecurity.cs" />
+    <Compile Include="Code\PaymentRequest.cs" />
     <Compile Include="Code\PayPalConfig.cs" />
     <Compile Include="Code\SessionHelper.cs" />
     <Compile Include="Code\UserSession.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MomoPayController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -192,6 +209,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\ChartItem.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -309,6 +327,7 @@
     <Content Include="Asset\Admin\js\calendar\fullcalendar.min.js" />
     <Content Include="Asset\Admin\js\calendar\moment.min.js" />
     <Content Include="Asset\Admin\js\card.js" />
+    <Content Include="Asset\Admin\js\Chart.min.js" />
     <Content Include="Asset\Admin\js\charts\area-chart.js" />
     <Content Include="Asset\Admin\js\charts\bar-chart.js" />
     <Content Include="Asset\Admin\js\charts\Chart.js" />
@@ -325,6 +344,7 @@
     <Content Include="Asset\Admin\js\colorpicker\jquery.spectrum.min.js" />
     <Content Include="Asset\Admin\js\controller\brand\brand.js" />
     <Content Include="Asset\Admin\js\controller\category\category.js" />
+    <Content Include="Asset\Admin\js\controller\product\product.js" />
     <Content Include="Asset\Admin\js\counterup\counterup-active.js" />
     <Content Include="Asset\Admin\js\counterup\jquery.counterup.min.js" />
     <Content Include="Asset\Admin\js\counterup\waypoints.min.js" />
@@ -416,6 +436,7 @@
     <Content Include="Asset\Admin\js\wizard\steps-active.js" />
     <Content Include="Asset\Admin\js\wow.min.js" />
     <Content Include="Asset\Admin\style.css" />
+    <Content Include="Asset\Image\20201011055543MoMo_Logo.png" />
     <Content Include="Asset\Image\Brand\sky.jpg" />
     <Content Include="Asset\Image\Category\261310982_928303677879572_1294835838483234934_n.png" />
     <Content Include="Asset\Image\Category\Adidas.jpg" />
@@ -431,6 +452,7 @@
     <Content Include="Asset\Image\Category\sky.jpg" />
     <Content Include="Asset\Image\Category\trang2.png" />
     <Content Include="Asset\Image\Nike.jpg" />
+    <Content Include="Asset\Image\Product\not-available.jpg" />
     <Content Include="Asset\Image\Product\p1.jpg" />
     <Content Include="Asset\Image\Product\p10.jpg" />
     <Content Include="Asset\Image\Product\p11.jpg" />
@@ -2254,6 +2276,7 @@
     <Content Include="Asset\Page\img\banner\b4.jpg" />
     <Content Include="Asset\Page\img\banner\b7.jpg" />
     <Content Include="Asset\Page\img\banner\banner3.jpg" />
+    <Content Include="Asset\Page\img\banner_new.png" />
     <Content Include="Asset\Page\img\blog\b1.jpg" />
     <Content Include="Asset\Page\img\blog\b2.jpg" />
     <Content Include="Asset\Page\img\blog\b3.jpg" />
@@ -2503,11 +2526,27 @@
     <Content Include="Asset\Page\fontawesome-free-6.0.0-web\webfonts\fa-solid-900.woff2" />
     <Content Include="Asset\Page\fontawesome-free-6.0.0-web\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Asset\Page\fontawesome-free-6.0.0-web\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\menu.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Menuleft.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CreatePhotos.cshtml" />
+    <Content Include="Areas\Admin\Views\Photo\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\EditProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\OrderWait.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\OrderLoad.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\OrderSuccess.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\ChartYear.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
@@ -2537,6 +2576,11 @@
     <Content Include="Views\_LayoutIndex.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Payment\ConfirmPaymentClient.cshtml" />
+    <Content Include="Views\Payment\SavePayment.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Product\ProductByDiscount.cshtml" />
+    <Content Include="Views\Pay\PaySuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2548,6 +2592,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Views\MomoPay\" />
     <Folder Include="Views\PayPal\" />
   </ItemGroup>
   <ItemGroup>

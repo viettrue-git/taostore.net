@@ -20,10 +20,15 @@ var user={
                     console.log(response);
                     if (response.status == true) {
                         btn.text('Disabled');
+                        btn.toggleClass('ds-setting btn-status');
+                        window.location.reload();
                        // document.getElementById("btn-status").style.background = 'red';
                     }
                     else {
                         btn.text('Active');
+                        btn.toggleClass('pd-setting btn-status');
+                        window.location.reload();
+
                        // document.getElementById("btn-status").style.background = 'greend';
                     }
                 },

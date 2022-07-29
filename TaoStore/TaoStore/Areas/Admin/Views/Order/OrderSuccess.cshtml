@@ -1,0 +1,133 @@
+﻿@using TaoStore.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Models.Famework.Order>
+@{
+    ViewBag.Title = "Order Successed";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+                    <h4>Order List(@Model.Count)</h4>
+                    <table>
+                        <tr>
+                            <th>Id</th>
+                            <th>Phone</th>
+                            <th>Name</th>
+                            <th style="text-align:center">Detail</th>
+                            <th>Status</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Address</th>
+                            <th>Note</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            float resul = 0;
+                            <tr>
+                                <td>@item.OrderId</td>
+                                <td>@item.Customer.PhoneNumber</td>
+                                <td>@item.Customer.Name</td>
+                                <td>
+                                    <div>
+                                        <table>
+                                            @foreach (var i in item.OrderDetails)
+                                            {
+
+                                                resul = (float)(i.Quantity * i.ProductPrice) * (100 - i.Discount.GetValueOrDefault(0)) / 100;
+                                                <tr>
+                                                    <td>@i.Product.ProductName</td>
+                                                    <td>@i.Size</td>
+                                                    <td>@i.Quantity</td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </td>
+                                <td id="status">
+                                    @{
+                                        if (item.StatusOrder == 0)
+                                        {
+                                            <button data-id="@item.OrderId" id="btn-status" class="ps-setting btn-status">Wait</button>
+                                        }
+                                        if (item.StatusOrder == 1)
+                                        {
+                                            <button data-id="@item.OrderId" id="btn-status" class="pd-setting btn-status">Loading</button>
+                                        }
+                                        if (item.StatusOrder > 1)
+                                        {
+                                            <button data-id="@item.OrderId" id="btn-status" class="ds-setting">success</button>
+                                        }
+                                    }
+                                </td>
+                                <td></td>
+                                <td>@resul</td>
+                                <td>@item.AddressOrder</td>
+                                <td>@item.Note</td>
+                            </tr>
+                        }
+
+
+                    </table>
+                    <div class="custom-pagination">
+                        <div class="pagination">
+                            @Html.PagedListPager(Model, page =>
+                            Url.Action("OrderSuccess", new { page = page }),
+                            new PagedListRenderOptions
+                                {
+                                LiElementClasses = new string[] { "page-item" },
+                        })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section FooterAdmin{
+
+    <script type="text/javascript">
+       function change() {
+           console.log("test");
+           var btn = $(this);
+           var id = btn.data('id');
+           $("#status").load();
+           console.log(id);
+       }
+       $('.btn-status').off('click').on('click', function (e) {
+           console.log("test");
+           e.preventDefault();
+           var btn = $(this);
+           var id = btn.data('id');
+           console.log(id);
+           $.ajax({
+               url: '/Admin/Order/ChangeStatus',
+               data: { id: id },
+               type: 'PUT',
+               dataType: 'json',
+               success: function (response) {
+                   console.log(response.status);
+                   $("#status").load();
+                   if (response.status > 1) {
+                       btn.text('Succsess');
+                       btn.toggleClass("ds-setting");
+                       $("#status").load();
+                       // document.getElementById("btn-status").style.background = 'red';
+                   }
+                   if (response.status == 1) {
+                       btn.text('Loading');
+                       btn.toggleClass("pd-setting btn-status");
+                       $("#status").load();
+                       // document.getElementById("btn-status").style.background = 'red';
+                   }
+               },
+               error: function (ex) {
+                   alert(ex);
+               }
+           });
+       });
+    </script>
+}

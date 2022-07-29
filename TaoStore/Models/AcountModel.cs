@@ -34,5 +34,10 @@ namespace Models
             Acount acount = context.Acounts.Where(x => x.Email == email).FirstOrDefault();
             return acount;
         }
+        public int Insert(Acount acount)
+        {
+            context.Acounts.Add(acount);
+            return acount.AcountId;
+        }
     }
 }

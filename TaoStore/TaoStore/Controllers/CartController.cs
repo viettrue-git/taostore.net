@@ -24,7 +24,6 @@ namespace TaoStore.Controllers
                     int total = giohang.Select(x => x.Total).Sum();
                     ViewBag.Total = total;
                 }
-
                 return View(giohang);
             }
             else
@@ -63,6 +62,11 @@ namespace TaoStore.Controllers
         [HttpPost]
         public ActionResult AddCart(int productId, FormCollection form)
         {
+            //if (ModelState.IsValid == true)
+            //{
+            //    ViewBag.MesCart = "Quantity of this product not enough!";
+            //    return View();
+            //}
             var quantity = Int32.Parse(form["quantity"].ToString());
             var size = Int32.Parse(form["size"].ToString());
             if (quantity == 0)

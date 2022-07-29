@@ -78,7 +78,6 @@ C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\System.Web.WebPages.Deployme
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\System.Web.WebPages.Razor.xml
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\Antlr3.Runtime.pdb
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\obj\Debug\TaoStore.csprojAssemblyReference.cache
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\obj\Debug\TaoStore.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\obj\Debug\TaoStore.csproj.CopyComplete
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\obj\Debug\TaoStore.dll
@@ -94,3 +93,9 @@ C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\EntityFramework.xml
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\EntityFramework.SqlServer.xml
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\PagedList.xml
 C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\PagedList.Mvc.xml
+C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\Microsoft.Owin.dll
+C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\Owin.dll
+C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\Microsoft.Owin.xml
+C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\Facebook.dll
+C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\bin\Facebook.xml
+C:\Users\ADMIN88\source\repos\TaoStore\TaoStore\obj\Debug\TaoStore.csproj.AssemblyReference.cache

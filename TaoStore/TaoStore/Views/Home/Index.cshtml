@@ -38,9 +38,15 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <h4>$@item.ProductPrice</h4>
+                        <div>
+                           @{ 
+                               var outh_price = @item.ProductPrice - @item.ProductPrice * @item.Discount / 100;
+                           }
+                            <h4>-@item.Discount% $<del>@item.ProductPrice</del> @outh_price</h4>
+                        </div>
                     </div>
                     @*<a href="@Url.Action("AddCart", "Cart", new {@productId=item.ProductId,@quantity=1})"><i class="fa-solid fa-cart-plus cart"></i></a>*@
+
                 </div>
                     i++;
                 }

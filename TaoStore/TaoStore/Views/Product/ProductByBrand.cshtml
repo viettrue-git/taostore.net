@@ -28,7 +28,7 @@
             {
                 <div class="pro">
                     <a href="@Url.Action("ProductDetail","Product",new { @id=item.ProductId})">
-                        <img src="~/Asset/Page/img/products/f1.jpg" alt="">
+                        <img src="@Url.Content(item.Photo.Photo1)" alt="">
                     </a>
                     <div class="des">
                         <span>@item.Brand.BrandName</span>
@@ -40,7 +40,12 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <h4>$@item.ProductPrice</h4>
+                        <div>
+                            @{
+                                var outh_price = @item.ProductPrice - @item.ProductPrice * @item.Discount / 100;
+                            }
+                            <h4>-@item.Discount% $<del>@item.ProductPrice</del> @outh_price</h4>
+                        </div>
                     </div>
                     @*<a href="@Url.Action("AddCart", "Cart", new {@productId=item.ProductId,@quantity=1})"><i class="fa-solid fa-cart-plus cart"></i></a>*@
                 </div>
@@ -54,15 +59,15 @@
     {
         if (pager.CurrentPage > 1)
         {
-            <a href="@Url.Action("Index", "Product", new { @pg=pager.CurrentPage-1})"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+            <a href="@Url.Action("ProductByBrand", "Product", new { @pg=pager.CurrentPage-1})"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
         }
         for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
         {
-            <a href="@Url.Action("Index", "Product", new { @pg=pge})">@pge</a>
+            <a href="@Url.Action("ProductByBrand", "Product", new { @pg=pge})">@pge</a>
         }
         if (pager.CurrentPage < pager.TotalPages)
         {
-            <a href="@Url.Action("Index", "Product", new { @pg=pager.CurrentPage+1})"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            <a href="@Url.Action("ProductByBrand", "Product", new { @pg=pager.CurrentPage+1})"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
         }
     }
 </section>

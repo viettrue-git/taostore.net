@@ -1,4 +1,11 @@
-﻿
+﻿@{
+    int countCartItem=0;
+    if (Session["giohang"] != null)
+    {
+        List<TaoStore.Models.CartItem> carts = (List<TaoStore.Models.CartItem>)Session["giohang"];
+        countCartItem = carts.Count;
+    }
+}
 <section id="header">
     <a href="#"><img src="~/Asset/Page/img/logo.png" class="logo" alt=""></a>
     <div>
@@ -24,7 +31,15 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping "></i></a></li>
+            <li>
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping "></i>
+                    @if (countCartItem != 0)
+                    {
+                        <label>(@countCartItem)</label>
+                    }
+                </a>
+            </li>
             <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
         </ul>
     </div>

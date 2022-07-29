@@ -114,9 +114,14 @@ namespace TaoStore.Controllers
                     }
                     context.Carts.Remove(cart);
                     context.SaveChanges();
+                    Session["giohang"] = null;
                 }
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("PaySuccess");
+        }
+        public ActionResult PaySuccess()
+        {
+            return View();
         }
     }
 }

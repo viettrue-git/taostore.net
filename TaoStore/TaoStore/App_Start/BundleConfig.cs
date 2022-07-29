@@ -64,7 +64,8 @@ namespace TaoStore
                "~/Asset/Admin/js/flot/jquery.flot.resize.js",
                 "~/Asset/Admin/js/flot/curvedLines.js",
                 "~/Asset/Admin/js/flot/flot-active.js",
-                "~/Asset/Admin/js/plugins.js"
+                "~/Asset/Admin/js/plugins.js",
+                "~/Asset/Admin/js/main.js"
                 ));
             bundles.Add(new StyleBundle("~/bundles/page/css").Include(
                 "~/Asset/Page/style.css"));

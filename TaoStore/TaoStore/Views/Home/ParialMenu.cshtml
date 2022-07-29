@@ -2,7 +2,13 @@
     var listCat = (List<Models.Famework.Category>)ViewBag.listCat;
     var listBrand = (List<Models.Famework.Brand>)ViewBag.listBrand;
     var acount = (Models.Famework.Acount)Session["loginSession"];
-}
+        int countCartItem = 0;
+        if (Session["giohang"] != null)
+        {
+            List<TaoStore.Models.CartItem> carts = (List<TaoStore.Models.CartItem>)Session["giohang"];
+            countCartItem = carts.Count;
+        }
+    }
 <section id="header">
     <a href="#"><img src="~/Asset/Page/img/logo.png" class="logo" alt=""></a>
     <div>
@@ -64,7 +70,13 @@
                     </li>
                 }
             }
-            <li><a href="@Url.Action("Index","Cart")"><i class="fa-solid fa-cart-shopping "></i></a></li>
+            <li><a href="@Url.Action("Index","Cart")"><i class="fa-solid fa-cart-shopping "></i>
+                   @if (countCartItem != 0)
+                    {
+                        <label>(@countCartItem)</label>
+                    }
+                </a>
+            </li>
             <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
         </ul>
     </div>
