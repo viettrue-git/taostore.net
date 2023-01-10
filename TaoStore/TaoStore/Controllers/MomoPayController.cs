@@ -111,7 +111,7 @@ namespace TaoStore.Controllers
                 ViewBag.Messger = "Please,you must to check payment!";
                 return View();
             }
-            if (!Request.QueryString["errorCode"].Equals("0"))
+            else if (!Request.QueryString["errorCode"].Equals("0"))
             {
                 ViewBag.Messger = "Payment fail!";
                 return View();

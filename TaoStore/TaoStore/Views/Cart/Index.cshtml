@@ -7,17 +7,17 @@
 }
 @if (list!=null&&list.Count>0)
 {
-    int total = (int)ViewBag.Total;
+    int total =  ViewBag.Total!=null?(int)ViewBag.Total:0;
     <section id="cart" class="section-p1">
         <table width="100%">
             <thead>
                 <tr>
-                    <td>Remove</td>
-                    <td>Image</td>
-                    <td>Product</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Subtotal</td>
+                    <td>Thao tác</td>
+                    <td>Hình ảnh</td>
+                    <td>Tên sản phẩm</td>
+                    <td>Giá</td>
+                    <td>Số lượng</td>
+                    <td>Tổng tiền</td>
                 </tr>
             </thead>
             <tbody>
@@ -50,35 +50,40 @@
 
     <section id="cart-add" class="section-p1">
         <div id="coupon">
-            <h3>Apply Coupon</h3>
+            <h3>Mã giảm giá</h3>
             <div>
                 <input type="text" placeholder="Enter your code">
-                <button class="normal">Apply</button>
+                <button class="normal">Áp dụng</button>
             </div>
         </div>
         <div id="subtotal">
-            <h3>Cart Subtotal</h3>
+            <h3>Thông tin thanh toán</h3>
             <table>
                 <tr>
-                    <td>Cart Subtotal</td>
+                    <td>Tổng hóa đơn</td>
                     <td>@total</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
-                    <td>Free</td>
+                    <td>Miễn phí vận chuyển</td>
                 </tr>
                 <tr>
-                    <td><strong>Total</strong></td>
+                    <td><strong>Tổng thanh toán</strong></td>
                     <td><strong>@total</strong></td>
                 </tr>
             </table>
-            <a href="@Url.Action("Index","Pay")">                                   
-                <button class="normal">Check out cart</button>
-            </a>
-            <div>
-                <a href="@Url.Action("Index","Payment")">
-                    <img width="10%" height="10%" src="~/Asset/Image/20201011055543MoMo_Logo.png">
-                </a>
+
+            <div class="row" style="display:flex">
+                <div class="col-6">
+                    <a href="@Url.Action("Index","Pay")">
+                        <button class="normal">Thanh toán khi nhận hàng</button>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="@Url.Action("Index","Payment")">
+                        <img width="34%" height="41%" src="~/Asset/Image/20201011055543MoMo_Logo.png">
+                    </a>
+                </div>
             </div>
         </div>
     </section>

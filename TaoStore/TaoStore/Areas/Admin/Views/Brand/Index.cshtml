@@ -46,10 +46,23 @@
                                         }
                                     }
                                 </td>
-                                <td>@item.BrandName</td> 
+                                <td>@item.BrandName</td>
+@*                                <td>
+                                    <button id="btn-status" style="color:green" class="btn-status" data-id="@item.BrandId">@(item.Status==true? "Active": "Disable")</button>
+
+                                </td>*@
                                 <td>
-                                        <button id="btn-status"  class="btn-status" data-id="@item.BrandId">@(item.Status==true? "Active": "Disable")</button>
-                                    
+                                    @{
+                                        if (item.Status == true)
+                                        {
+                                            <button class="pd-setting btn-status" style="color:green" id="btn-status" data-id="@item.BrandId">Active</button>
+                                        }
+                                        else
+                                        {
+                                            <button class="ds-setting btn-status" style="color:red" id="btn-status" data-id="@item.BrandId">Disabled</button>
+                                        }
+                                        @*<button id="btn-status" style="background-color:darkgray" class="btn-status" data-id="@item.CategoryId">@(item.Status==true? "Active": "Disable")</button>*@
+                                    }
                                 </td>
                                 <td>@item.Products.Count()</td>
                                 <td>@(item.Note!=""?item.Note:"Chưa cập nhật")</td>

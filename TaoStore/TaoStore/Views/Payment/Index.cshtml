@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutShop.cshtml";
     int total = 0;
     List<TaoStore.Models.CartItem> list = (List<TaoStore.Models.CartItem>)Session["giohang"];
-    total = list.Sum(x => x.Total);
+    total = list.Count>0?list.Sum(x => x.Total):0;
 
 }
 @if (Session["loginSession"] != null)

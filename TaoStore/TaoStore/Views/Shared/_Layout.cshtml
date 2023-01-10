@@ -13,10 +13,9 @@
 <body>
     @{ Html.RenderAction("ParialMenu", "Home");}
     <section id="hero">
-        <h4>Trade-in-offer</h4>
-        <h2>Super value deals</h2>
-        <h1>On all products</h1>
-        <p>Save more with coupons & up 70% off!</p>
+        <h2>Siêu ưu đãi</h2>
+        <h1>Đa dạng sản phẩm</h1>
+        <p>Giảm đến 70% mừng Black-Fire Day</p>
         <a href="@Url.Action("ProductByDiscount","Product",new {@discount=70})">
             <button>Shop Now</button>
         </a>
@@ -26,37 +25,37 @@
     <section id="feature" class="section-p1">
         <div class="fe-box">
             <img src="~/Asset/Page/img/features/f1.png" alt="">
-            <h6>Free Shipping</h6>
+            <h6>Mua hàng online</h6>
         </div>
         <div class="fe-box">
             <img src="~/Asset/Page/img/features/f2.png" alt="">
-            <h6>Online Order</h6>
+            <h6>Free ship</h6>
         </div>
         <div class="fe-box">
             <img src="~/Asset/Page/img/features/f3.png" alt="">
-            <h6>Save Money</h6>
+            <h6>Tích kiệm với voicher</h6>
         </div>
         <div class="fe-box">
             <img src="~/Asset/Page/img/features/f4.png" alt="">
-            <h6>Promotions</h6>
+            <h6>Nhận quà may mắn</h6>
         </div>
         <div class="fe-box">
             <img src="~/Asset/Page/img/features/f5.png" alt="">
-            <h6>Happy Sell</h6>
+            <h6>Nhiều flash sale</h6>
         </div>
         <div class="fe-box">
             <img src="~/Asset/Page/img/features/f6.png" alt="">
-            <h6>F24/7 Support</h6>
+            <h6>Hỗ trợ nhanh chóng</h6>
         </div>
     </section>
     @RenderBody()
 
 
 <section id="banner" class="section-m1">
-    <h4>Repair Services</h4>
-    <h2>Up to <span>70% Off</span> - All Product & Accessories</h2>
-    <a href="@Url.Action("ProductByDiscount","Product",new {@discount=10})">
-        <button class="normal">Explore More</button>
+    <h4>Tưng bừng đón tết</h4>
+    <h2>Giảm tới <span>50%</span> - Các sản phảm và phụ kiện đi kèm</h2>
+    <a href="@Url.Action("ProductByDiscount","Product",new {@discount=50})">
+        <button class="normal">Xem ngay</button>
     </a>
 </section>
 

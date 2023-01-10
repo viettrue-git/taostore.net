@@ -51,11 +51,11 @@
                                     @{
                                         if (item.Status == true)
                                             {
-                                                <button class="pd-setting btn-status" id="btn-status" data-id="@item.CategoryId">Active</button>
+                                                <button class="pd-setting btn-status" style="color:green" id="btn-status" data-id="@item.CategoryId">Active</button>
                                             }
                                             else
                                             {
-                                                <button class="ds-setting btn-status" id="btn-status" data-id="@item.CategoryId">Disabled</button>
+                                                <button class="ds-setting btn-status" style="color:red" id="btn-status" data-id="@item.CategoryId">Disabled</button>
                                             }
                                         @*<button id="btn-status" style="background-color:darkgray" class="btn-status" data-id="@item.CategoryId">@(item.Status==true? "Active": "Disable")</button>*@
                                     }

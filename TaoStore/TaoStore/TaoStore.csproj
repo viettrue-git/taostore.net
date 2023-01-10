@@ -2256,6 +2256,7 @@
     <Content Include="Asset\Page\fontawesome-free-6.0.0-web\svgs\solid\yen-sign.svg" />
     <Content Include="Asset\Page\fontawesome-free-6.0.0-web\svgs\solid\yin-yang.svg" />
     <Content Include="Asset\Page\fontawesome-free-6.0.0-web\svgs\solid\z.svg" />
+    <Content Include="Asset\Page\img\1248.jpg" />
     <Content Include="Asset\Page\img\about\1.mp4" />
     <Content Include="Asset\Page\img\about\a1.png" />
     <Content Include="Asset\Page\img\about\a2.jpg" />
@@ -2276,6 +2277,11 @@
     <Content Include="Asset\Page\img\banner\b4.jpg" />
     <Content Include="Asset\Page\img\banner\b7.jpg" />
     <Content Include="Asset\Page\img\banner\banner3.jpg" />
+    <Content Include="Asset\Page\img\banner\banner_run_shoes.jpg" />
+    <Content Include="Asset\Page\img\banner\banner_shose_bot.jpg" />
+    <Content Include="Asset\Page\img\banner\banner_white.jpg" />
+    <Content Include="Asset\Page\img\banner\banne_gray.jpg" />
+    <Content Include="Asset\Page\img\banner\Mini_Banner_Desktop_LEWA_collection_2.jpg" />
     <Content Include="Asset\Page\img\banner_new.png" />
     <Content Include="Asset\Page\img\blog\b1.jpg" />
     <Content Include="Asset\Page\img\blog\b2.jpg" />

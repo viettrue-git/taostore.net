@@ -24,6 +24,7 @@ namespace TaoStore.Controllers
            // trang 2 se bo qua so phan tu o trang so 1
             var model = products.Skip(resSkip).Take(pager.PageSize).ToList();
             this.ViewBag.Pager = pager;
+            this.ViewBag.isShow = true;
             return View(model);
         }
         public ActionResult ProductDetail(int id)

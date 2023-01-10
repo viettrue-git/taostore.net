@@ -22,20 +22,27 @@
         <h2>#stayhone</h2>
         <p>Save more with coupons & up 70% off!</p>
     </section>
+    @{
+        var isShowSearch = false;
+        isShowSearch = ViewBag.isShow??false;
+        if (isShowSearch==true)
+        {
+            <section id="pagination" class="section-p1">
+                <div class="search">
+                    @using (Html.BeginForm("ResultSearch", "Search", FormMethod.Post))
+                    {
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes:
+                        new { @class = "key", @placeholder = "enter your key search" })
+                        @*<input type="text" id="txtTimKiem" class="key" placeholder="enter your key search">*@
+                        <button class="normal" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    }
+                </div>
+            </section>
+        }
+    }
 
-    <section id="pagination" class="section-p1">
-        <div class="search">
-            @using (Html.BeginForm("ResultSearch", "Search", FormMethod.Post))
-            {
-                @Html.TextBox("txtTimKiem", "", htmlAttributes:
-                new { @class = "key", @placeholder = "enter your key search" })
-                @*<input type="text" id="txtTimKiem" class="key" placeholder="enter your key search">*@
-                <button class="normal" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-            }
-        </div>
-    </section>
 
 
     @RenderBody()

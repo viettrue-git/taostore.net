@@ -6,8 +6,8 @@
 }
 
 <section id="product1" class="section-p1">
-    <h2>Featured Products</h2>
-    <p>Summer Collection New Morden Desgin</p>
+    <h2>Sản phẩm nổi bật</h2>
+    <p>Với giày của Táo mùa đông sẽ không còn lạnh!</p>
     <div class="pro-container">
         @{
             int i = 0;
@@ -42,7 +42,7 @@
                            @{ 
                                var outh_price = @item.ProductPrice - @item.ProductPrice * @item.Discount / 100;
                            }
-                            <h4>-@item.Discount% $<del>@item.ProductPrice</del> @outh_price</h4>
+                            <h4>-@item.Discount% vnd<del>@item.ProductPrice</del> @outh_price</h4>
                         </div>
                     </div>
                     @*<a href="@Url.Action("AddCart", "Cart", new {@productId=item.ProductId,@quantity=1})"><i class="fa-solid fa-cart-plus cart"></i></a>*@
